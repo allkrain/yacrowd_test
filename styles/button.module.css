@@ -39,7 +39,7 @@
 
 @media screen and (min-width: 1000px) {
   .button {
-    padding: 10px 50px;
+    padding: 10px 35px;
     height: 72px;
     border: 2px solid var(--button-color);
   }
@@ -55,5 +55,11 @@
 
   .button_light:hover {
     border-color: var(--button-color);
+  }
+}
+
+@media screen and (min-width: 1180px) {
+  .button {
+    padding: 10px 50px;
   }
 }

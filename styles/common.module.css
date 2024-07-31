@@ -16,7 +16,7 @@ body {
   font-family: var(--base-font);
   font-optical-sizing: auto;
   font-weight: 400;
-  font-size: 20px;
+  font-size: var(--font-size-3);
   line-height: 1.2;
   color: var(--base-color);
   background-color: var(--base-color-light);

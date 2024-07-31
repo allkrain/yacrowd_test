@@ -118,34 +118,61 @@
           <h2 class="plan__title">Этапы преображения Васюков</h2>
           <p class="plan__description">Будущие источники обогащения васюкинцев</p>
         </header>
-        <div class="plan__slider slider js-plan-slider">
+        <div class="plan__slider slider" data-slider="plan">
           <ul class="plan__list">
-            <li class="plan__items plan__items_double-column">
-              <p class="plan__step">Строительство железнодорожной магистрали Москва-Васюки</p>
-              <p class="plan__step">Открытие фешенебельной гостиницы «Проходная пешка» и других небоскрёбов</p>
+            <li class="plan__item plan__item_double-column">
+              <div class="plan__step">
+                <p>Строительство железнодорожной магистрали Москва-Васюки
+                </p>
+              </div>
+              <div class="plan__step">
+                <p>Открытие фешенебельной гостиницы «Проходная пешка» и других небоскрёбов
+                </p>
+              </div>
             </li>
-            <li class="plan__items plan__items_double-row">
-              <p class="plan__step">Поднятие сельского хозяйства в радиусе на тысячу километров: производство овощей, фруктов, икры, шоколадных конфет</p>
+            <li class="plan__item plan__item_double-row">
+              <div class="plan__step">
+                <p>
+                  Поднятие сельского хозяйства в радиусе на тысячу километров: производство овощей, фруктов, икры, шоколадных конфет
+                </p>
+              </div>
             </li>
-            <li class="plan__items plan__items_double-column">
-              <p class="plan__step">Строительство дворца для турнира</p>
-              <p class="plan__step">Размещение гаражей для гостевого автотранспорта</p>
+            <li class="plan__item plan__item_double-column">
+              <div class="plan__step">
+                <p>
+                  Строительство дворца для турнира
+                </p>
+              </div>
+              <div class="plan__step">
+                <p>
+                  Размещение гаражей для гостевого автотранспорта
+                </p>
+              </div>
             </li>
-            <li class="plan__items">
-              <p class="plan__step">Постройка сверхмощной радиостанции для передачи всему миру сенсационных результатов</p>
+            <li class="plan__item">
+              <div class="plan__step">
+                <p>
+                  Постройка сверхмощной радиостанции для передачи всему миру сенсационных результатов
+                </p>
+              </div>
             </li>
-            <li class="plan__items">
-              <p class="plan__step"> Создание аэропорта «Большие Васюки» с регулярным отправлением почтовых самолётов и дирижаблей во все концы света, включая Лос-Анжелос и Мельбурн
-              </p>
+            <li class="plan__item plan__item_double-column">
+              <div class="plan__step">
+                <p>
+                  Создание аэропорта «Большие Васюки» с регулярным отправлением почтовых самолётов и дирижаблей во все концы света, включая Лос-Анжелос и Мельбурн
+                </p>
+              </div>
             </li>
           </ul>
           <div class="plan__navigation slider__navigation">
-            <button class="slider__button slider__button_prev js-slider-next">
+            <button class="slider__button slider__button_prev" data-slider-button-prev="plan" disabled>
               <span class="visually-hidden">Назад</span>
             </button>
-            <ul class="slider__pagination">
+            <ul class="slider__pagination" data-slider-pagination="plan">
+              <li class="slider__dot slider__dot_current"></li>
+              <li class="slider__dot"></li>
             </ul>
-            <button class="slider__button slider__button_next js-slider-prev">
+            <button class="slider__button slider__button_next" data-slider-button-next="plan">
               <span class="visually-hidden">Вперед</span>
             </button>
           </div>
@@ -158,23 +185,24 @@
       <div class="container">
 
         <header class="participants__header">
-          <h2 class="participants__title"></h2>
+          <h2 class="participants__title">Участники турнира</h2>
           <div class="participants__navigation slider__navigation">
-            <button class="slider__button slider__button_prev js-slider-next">
+            <button class="slider__button slider__button_prev" data-slider-button-prev="participants">
               <span class="visually-hidden">Назад</span>
             </button>
-            <ul class="slider__pagination">
-            </ul>
-            <button class="slider__button slider__button_next js-slider-prev">
+            <div class="slider__counter" data-slider-counter="participants">
+              3<span>/6</span>
+            </div>
+            <button class="slider__button slider__button_next" data-slider-button-next="participants">
               <span class="visually-hidden">Вперед</span>
             </button>
           </div>
         </header>
-        <div class="participants__slider slider">
+        <div class="participants__slider slider" data-slider="participants">
           <ul class="participants__list">
             <li class="participants__item">
               <article class="participant">
-                <img src="images/avatar.svg" alt="Портрет участника" width="244" height="244">
+                <img src="images/avatar.jpg?as=webp" alt="Портрет участника" width="244" height="244">
                 <h3>Хозе-Рауль Капабланка</h3>
                 <p>Чемпион мира по шахматам</p>
                 <a href="#">Подробнее</a>
@@ -182,7 +210,7 @@
             </li>
             <li class="participants__item">
               <article class="participant">
-                <img src="images/avatar.svg" alt="Портрет участника" width="244" height="244">
+                <img src="images/avatar.jpg?as=webp" alt="Портрет участника" width="244" height="244">
                 <h3>Эммануил Ласкер</h3>
                 <p>Чемпион мира по шахматам</p>
                 <a href="#">Подробнее</a>
@@ -190,7 +218,7 @@
             </li>
             <li class="participants__item">
               <article class="participant">
-                <img src="images/avatar.svg" alt="Портрет участника" width="244" height="244">
+                <img src="images/avatar.jpg?as=webp" alt="Портрет участника" width="244" height="244">
                 <h3>Александр Алехин</h3>
                 <p>Чемпион мира по шахматам</p>
                 <a href="#">Подробнее</a>
@@ -198,7 +226,7 @@
             </li>
             <li class="participants__item">
               <article class="participant">
-                <img src="images/avatar.svg" alt="Портрет участника" width="244" height="244">
+                <img src="images/avatar.jpg?as=webp" alt="Портрет участника" width="244" height="244">
                 <h3>Арон Нимцович</h3>
                 <p>Чемпион мира по шахматам</p>
                 <a href="#">Подробнее</a>
@@ -206,7 +234,7 @@
             </li>
             <li class="participants__item">
               <article class="participant">
-                <img src="images/avatar.svg" alt="Портрет участника" width="244" height="244">
+                <img src="images/avatar.jpg?as=webp" alt="Портрет участника" width="244" height="244">
                 <h3>Рихард Рети</h3>
                 <p>Чемпион мира по шахматам</p>
                 <a href="#">Подробнее</a>
@@ -214,7 +242,7 @@
             </li>
             <li class="participants__item">
               <article class="participant">
-                <img src="images/avatar.svg" alt="Портрет участника" width="244" height="244">
+                <img src="images/avatar.jpg?as=webp" alt="Портрет участника" width="244" height="244">
                 <h3>Остап Бендер</h3>
                 <p>Гроссмейстер</p>
                 <a href="#">Подробнее</a>

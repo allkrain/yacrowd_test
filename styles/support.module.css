@@ -16,7 +16,7 @@
 }
 
 .support__lection {
-  padding-top: 60px;
+  padding-top: 52px;
 }
 
 .support__lection .support__description {
@@ -48,14 +48,13 @@
 .support__game::before {
   display: block;
   content: "";
-  margin: 0 -20px;
+  margin: 0 -20px 26px;
   width: calc(100% + 40px);
   height: 400px;
   background-image: url("../images/game.png?as=webp");
   background-repeat: no-repeat;
   background-size: 375px 400px;
   background-position: center 0;
-  margin-bottom: 24px;
 }
 
 .support__game .support__description {
@@ -64,7 +63,8 @@
 
 .support__list {
   display: inline-block;
-  margin: 0 0 40px;
+  margin: 0 0 42px;
+  width: 100%;
 }
 
 .support__item {
@@ -72,7 +72,7 @@
   flex-wrap: wrap;
   box-sizing: border-box;
   width: 100%;
-  padding: 16px 0;
+  padding: 15px 0;
   gap: 12px;
 }
 
@@ -110,7 +110,7 @@
 
 @media screen and (min-width: 1000px) {
   .support {
-    padding-bottom: 200px;
+    padding-bottom: 190px;
   }
 
   .support__lection {
