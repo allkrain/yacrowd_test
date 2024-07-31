@@ -1,6 +1,7 @@
 .support {
   display: block;
   width: 100%;
+  padding-bottom: 120px;
 }
 
 .support__description {
@@ -27,7 +28,7 @@
 .support__lection-image {
   width: 335px;
   height: 212px;
-  margin: 24px 0;
+  margin: 24px auto;
   clip-path: ellipse(50% 50% at 50% 50%);
   order: 1;
 }
@@ -40,23 +41,78 @@
   display: block;
   box-sizing: border-box;
   padding-top: 34px;
+  font-size: var(--font-size-3);
+  line-height: 1.2;
 }
 
 .support__game::before {
   display: block;
   content: "";
   margin: 0 -20px;
-  max-width: 375px;
   width: calc(100% + 40px);
   height: 400px;
   background-image: url("../images/game.png?as=webp");
   background-repeat: no-repeat;
   background-size: 375px 400px;
-  background-position: center;
+  background-position: center 0;
   margin-bottom: 24px;
 }
 
+.support__game .support__description {
+  margin-bottom: 44px;
+}
+
+.support__list {
+  display: inline-block;
+  margin: 0 0 40px;
+}
+
+.support__item {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px 0;
+  gap: 12px;
+}
+
+.support__item:first-child {
+  padding-top: 0;
+}
+
+.support__item:last-child {
+  padding-bottom: 0;
+}
+
+.support__item:not(:last-child) {
+  border-bottom: 2px solid var(--border-color);
+}
+
+.support__item dt {
+  opacity: 0.7;
+  flex: none;
+}
+
+.support__item dd {
+  margin-left: 0;
+  font-weight: 600;
+}
+
+.support__item del {
+  text-decoration-color: var(--accent-color);
+  margin-right: 8px;
+}
+
+.support__note {
+  font-size: var(--font-size-2);
+  color: var(--accent2-color);
+}
+
 @media screen and (min-width: 1000px) {
+  .support {
+    padding-bottom: 200px;
+  }
+
   .support__lection {
     padding-top: 80px;
   }
@@ -93,8 +149,9 @@
     margin-top: -28px;
     margin-left: -28px;
     margin-right: 16px;
-    max-width: none;
-    width: 530px;
+    margin-bottom: 0;
+    width: 43.2%;
+    max-width: 530px;
     height: 568px;
     background-size: contain;
   }
@@ -103,5 +160,53 @@
     display: block;
     content: "";
     clear: both;
+  }
+
+  .support__game .support__description {
+    margin-bottom: 60px;
+  }
+
+  .support__list {
+    display: table;
+    border-collapse: collapse;
+    width: calc(56.8% + 12px);
+    margin-bottom: 48px;
+  }
+
+  .support__item {
+    display: table-row;
+    padding: 0;
+    gap: 0;
+  }
+
+  .support__item dt {
+    display: table-cell;
+    box-sizing: border-box;
+    padding: 15px 16px;
+    padding-left: 0;
+    width: 43.5%;
+  }
+
+  .support__item dd {
+    display: table-cell;
+    box-sizing: border-box;
+    padding: 15px 16px;
+    padding-right: 0;
+    border-left: 2px solid var(--border-color);
+    width: 56.5%;
+  }
+
+  .support__item:first-child dt,
+  .support__item:first-child dd {
+    padding-top: 0;
+  }
+
+  .support__item:last-child dt,
+  .support__item:last-child dd {
+    padding-bottom: 0;
+  }
+
+  .support__note {
+    font-size: var(--font-size-3);
   }
 }
