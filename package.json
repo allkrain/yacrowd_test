@@ -11,7 +11,7 @@
   "browserslist": "> 1%, last 2 version, not dead",
   "scripts": {
     "start": "parcel",
-    "build": "parcel"
+    "build": "parcel build --no-scope-hoist"
   },
   "keywords": [],
   "author": "Alla Krainova <aukra25@yandex.ru>",
