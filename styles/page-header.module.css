@@ -1,0 +1,32 @@
+.page-header {
+  position: absolute;
+  display: block;
+  width: 100%;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 18px 0;
+  z-index: 3;
+}
+
+.logo {
+  display: block;
+  height: 32px;
+  line-height: 0;
+}
+
+.logo__image {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+@media screen and (min-width: 1000px) {
+  .page-header {
+    padding: 26px 0;
+  }
+
+  .logo {
+    height: 36px;
+  }
+}

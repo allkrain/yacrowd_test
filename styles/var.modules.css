@@ -1,0 +1,25 @@
+:root {
+  --base-font: "Golos Text", sans-serif;
+  --head-font: Merriweather, serif;
+
+  --base-color: #313131;
+  --base-light-color: #fff;
+  --accent-color: #f54932;
+  --accent2-color: #3057a2;
+  --bg-color: #e9ded4;
+  --bg2-color: #d9d9d9;
+  --border-color: d0d0d0;
+  --button-color: #1f1f1f;
+  --button-accent-color: #fbce51;
+  --logo-color: #595653;
+
+  --font-size: 16px;
+  --font-size-2: 18px;
+  --font-size-3: 20px;
+  --font-size-4: 22px;
+  --font-size-5: 24px;
+  --font-size-6: 28px;
+  --font-size-7: 36px;
+  --font-size-8: 54px;
+  --font-size-9: 60px;
+}
