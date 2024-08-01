@@ -26,23 +26,22 @@ class Slider {
   start() {
     this.setNavigation();
 
-    if (this.options.pagination) {
-      this.setPagination();
-    }
-
-    if (this.options.counter) {
-      this.setCounter();
-    }
 
     if (this.isBreakpoints()) {
       this.setBreakpoints();
     }
 
+    if (this.isPagination()) {
+      this.setPagination();
+    }
+
+    if (this.isCounter()) {
+      this.setCounter();
+    }
+
     if (this.isAutoplay()) {
       this.autoplay();
     }
-
-    console.log(`go ${this.sliderName}`);
   }
 
   isAutoplay = () => {
@@ -57,12 +56,55 @@ class Slider {
     return Object.keys(this.options.breakpoints).length
   }
 
-  setPagination() {
+  isPagination = () => {
+    return this.options.pagination;
+  }
 
+  isCounter = () => {
+    return this.options.counter;
+  }
+
+  createDots = () => {
+    const fragment = document.createDocumentFragment();
+    Array.from(this.slides).forEach((el, index) => {
+      const dot = document.createElement('li');
+      dot.classList.add('slider__dot');
+      if (this.currentSlide == index) {
+        dot.classList.add('slider__dot_current');
+      }
+      fragment.append(dot);
+    });
+
+    this.paginationContainer.append(fragment);
+  }
+
+  setPagination() {
+    this.paginationContainer = document.querySelector(`[data-slider-pagination="${this.sliderName}"]`);
+    console.log(this.paginationContainer);
+    this.paginationContainer.innerHTML = '';
+    this.createDots();
+    this.paginationDots = this.paginationContainer.querySelectorAll('.slider__dot');
+  }
+
+  updatePagination = () => {
+    const dots = Array.from(this.paginationDots);
+    dots[this.previousSlide]?.classList.remove('slider__dot_current');
+    dots[this.currentSlide]?.classList.add('slider__dot_current');
+  }
+
+  createCounter = () => {
+    return `${this.currentSlide + this.step} <span>/ ${this.totalSlides}</span>`
   }
 
   setCounter() {
+    this.counterContainer = document.querySelector(`[data-slider-counter="${this.sliderName}"]`);
+    this.counterContainer.innerHTML = '';
+    this.counterContainer.insertAdjacentHTML('beforeend', this.createCounter());
+  }
 
+  updateCounter = () => {
+    this.counterContainer.innerHTML = '';
+    this.counterContainer.insertAdjacentHTML('beforeend', this.createCounter());
   }
 
   onButtonNextClick = (evt) => {
@@ -134,23 +176,33 @@ class Slider {
   }
 
 
-  getTransition = () => {
+  getTransition = (number) => {
+    const index = number || this.currentSlide;
     const slidesLength = Array.from(this.slides).reduce((sum, el) => sum + el.offsetWidth, 0);
     const gap = this.options.gap;
     const slideLength = slidesLength / this.totalSlides;
-    console.log(`gap : ${gap}`);
-    console.log(`slideLength ${slideLength}`);
-    return this.currentSlide === 0 ? 0 : (slideLength + gap) * this.currentSlide;
+    return index === 0 ? 0 : (slideLength + gap) * index;
   }
 
-  moveTo = () => {
-    console.log(`движемся к ${this.currentSlide}`);
+  moveTo = (number) => {
+    if (this.isPagination()) {
+      this.updatePagination();
+    }
+
+    if (this.isCounter()) {
+      this.updateCounter();
+    }
+
     this.sliderWrapper.style.transition = 'transform 0.3s ease';
-    this.sliderWrapper.style.transform = `translate3d(${-1 * this.getTransition()}px, 0, 0)`;
+    this.sliderWrapper.style.transform = `translate3d(${-1 * this.getTransition(number)}px, 0, 0)`;
+  }
+
+  resetTransition = () => {
+    this.sliderWrapper.style.transition = '';
+    this.sliderWrapper.style.transform = '';
   }
 
   goNext = () => {
-    console.log('go next');
     this.previousSlide = this.currentSlide;
 
     if (this.currentSlide < this.totalSlides - this.step) {
@@ -170,7 +222,6 @@ class Slider {
   }
 
   goPrev = () => {
-    console.log('go prev');
     this.previousSlide = this.currentSlide;
 
     const diff = this.totalSlides % this.step;
@@ -191,11 +242,8 @@ class Slider {
     this.moveTo(this.currentSlide);
   }
 
-  update() {
-
-  }
-
   destroy() {
+    this.resetTransition();
     this.nextButton?.removeEventListener('click', this.onButtonNextClick);
     this.prevButton?.removeEventListener('click', this.onButtonPrevClick);
 
@@ -204,8 +252,6 @@ class Slider {
         mediaQuery.query.removeEventListener('change', this.onQueryChange);
       });
     }
-
-    console.log(`destroy slider ${this.sliderName}`);
   }
 }
 
