@@ -40,6 +40,18 @@
   color: var(--accent2-color);
   border: 1px solid currentColor;
   border-radius: 35px;
+  transition: background 0.3s ease-in, color 0.3s ease-in, border 0.3s ease-in,
+    transform 0.3s ease-in;
+}
+
+.participant a:hover {
+  background-color: var(--accent2-color);
+  color: var(--base-light-color);
+  border-color: var(--accent2-color);
+}
+
+.participant a:active {
+  transform: scale(0.9);
 }
 
 .participant *:nth-last-child(1) {

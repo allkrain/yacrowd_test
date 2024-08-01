@@ -45,6 +45,12 @@
   flex: none;
 }
 
+@media screen and (min-width: 800px) {
+  .participants__item {
+    width: calc(50% - 10px);
+  }
+}
+
 @media screen and (min-width: 1000px) {
   .participants {
     padding-bottom: 140px;
@@ -63,7 +69,9 @@
     width: auto;
     position: static;
   }
+}
 
+@media screen and (min-width: 1250px) {
   .participants__item {
     width: calc(33.33% - 13.33px);
   }
